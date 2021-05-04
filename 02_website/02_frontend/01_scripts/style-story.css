@@ -1,0 +1,260 @@
+/*--------------------------------------- Stylesheet for about page -------------------------------------------*/
+
+
+/*---------- Fonts and colors -----------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200&display=swap');
+
+:root {
+  --overlay-color: #1C6430;
+}
+
+/*---------------------------------------------------- About page ----------------------------------------------------*/
+
+/*------------- section 1 layout -------------*/
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif
+}
+
+.section {
+    width: 100%;
+    height: 100vh;
+    background-color: #050505;
+}
+
+/*------------- Header and Menu -------------*/
+header {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    width: 100%;
+    padding: 40px 50px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+  }
+
+/*------------- Footer -------------*/
+#footer {
+    position: absolute;
+    color: white;
+    top: 380%;
+    width: 100%;
+    height: 50px;
+    padding: 40px 50px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+/*------------- Texts -------------*/
+
+.intro {
+  position: absolute;
+  width: 500px;
+  height: 500;
+  top: 10%;
+  right: 58%;
+
+  border-radius: 20px;
+  z-index: 300;
+}
+  .intro-text {
+    padding: 15px;
+    color: white;
+  }
+
+.text-card {
+    position: absolute;
+    width: 1150px;
+    height: 300;
+    top: 75%;
+    right: 5%;
+    
+    border-radius: 20px;
+    z-index: 300;
+}
+
+.small-text {
+    padding: 15px;
+    color: white;
+}
+
+.text-card2 {
+    position: absolute;
+    width: 1000px;
+    height: 300;
+    top: 150%;
+    left: 10%;
+    border-radius: 20px;
+    z-index: 300;
+}
+
+.small-text2 {
+    padding: 15px;
+    color: white;
+}
+
+.text-card3 {
+    position: absolute;
+    width: 1000px;
+    height: 300;
+    top: 225%;
+    right: 10%;
+    
+    border-radius: 20px;
+    z-index: 300;
+}
+
+.small-text3 {
+    padding: 15px;
+    color: white;
+}
+
+.text-card4 {
+  position: absolute;
+  width: 1000px;
+  height: 300;
+  top: 300%;
+  right: 10%;
+
+  border-radius: 20px;
+  z-index: 300;
+}
+
+.small-text4 {
+  padding: 15px;
+  color: white;
+}
+
+/*------------- Intro text and img -------------*/
+#bubble-pic {
+    position: absolute;
+    top: 10%;
+    left: 55%;
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    z-index: 500;
+    border: .5rem solid #343536;
+    box-shadow: .5rem .5rem 2rem rgba(0,0,0,0.5);
+}
+
+img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#one-planet {
+  position: absolute;
+  left: 10%;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  z-index: 100;
+  border: 1rem solid #292929;
+  box-shadow: .5rem .5rem 2rem rgba(0,0,0,0.5);
+}
+
+#one-planet {
+    position: absolute;
+    left: 2%;
+    top: 100%;
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 0%;
+    z-index: 100;
+    border: .5rem solid #2a2a2b;
+    box-shadow: .5rem .5rem 2rem rgba(0,0,0,0.5);
+}
+
+#one-planet2 {
+    position: absolute;
+    right: 10%;
+    top: 175%;
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 0%;
+    z-index: 100;
+    border: .5rem solid #202020;
+    box-shadow: .5rem .5rem 2rem rgba(0,0,0,0.5);
+}
+
+#one-planet3 {
+    position: absolute;
+    left: 10%;
+    top: 250%;
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 0%;
+    z-index: 100;
+    border: .5rem solid #2e3030;
+    box-shadow: .5rem .5rem 2rem rgba(0,0,0,0.5);
+}
+
+#one-planet4 {
+  position: absolute;
+  left: 10%;
+  top: 320%;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 0%;
+  z-index: 100;
+  border: .5rem solid #2e3030;
+  box-shadow: .5rem .5rem 2rem rgba(0,0,0,0.5);
+}
+
+/*----------- Scroll down -----------*/
+.scroll-down {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  /*----------- Scroll down -----------*/
+  
+  .scroll-down::before,
+  .scroll-down::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    height: 20px;
+    width: 20px;
+    transform: translate( -50%, -50%);
+    border-right: 2px solid rgb(194, 66, 66);
+    border-bottom: 2px solid rgb(218, 16, 16);
+    transform: rotate(45deg);
+    animation: scroll-down 1.5s ease-in-out infinite;
+  }
+  
+  .scroll-down::after {
+    top: 80%;
+  }
+  @keyframes scroll-down {
+    0%{
+      opacity: 0;
+    }
+    30%{
+      opacity: 1;
+    }
+    60%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+      top: 90%;
+    }
+  }
+  
