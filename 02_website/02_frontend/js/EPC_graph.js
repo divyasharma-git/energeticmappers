@@ -35,25 +35,25 @@ anychart.onDocumentReady(function () {
 
     // set labels
     seriesA.labels(true);
-    seriesA.labels().format('A').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
+    seriesA.labels().format('A (92-100)').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
 
     seriesB.labels(true);
-    seriesB.labels().format('B').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
+    seriesB.labels().format('B (81-91)').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
 
     seriesC.labels(true);
-    seriesC.labels().format('C').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
+    seriesC.labels().format('C (69-80)').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
 
     seriesD.labels(true);
-    seriesD.labels().format('D').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
+    seriesD.labels().format('D (55-68)').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
 
     seriesE.labels(true);
-    seriesE.labels().format('E').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
+    seriesE.labels().format('E (39-54)').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
 
     seriesF.labels(true);
-    seriesF.labels().format('F').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
+    seriesF.labels().format('F (21-38)').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
 
     seriesG.labels(true);
-    seriesG.labels().format('G').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
+    seriesG.labels().format('G (1-20)').position('left-center').fontColor("#FFFFFF").fontWeight(500).fontSize(14);
 
     // remove axis
     // x
@@ -67,13 +67,13 @@ anychart.onDocumentReady(function () {
     chart.barsPadding(0);
 
     // set tooltip
-    seriesA.tooltip().titleFormat('A').format("92-100");
-    seriesB.tooltip().titleFormat('B').format("81-91");
-    seriesC.tooltip().titleFormat('C').format("69-80");
-    seriesD.tooltip().titleFormat('D').format("55-68");
-    seriesE.tooltip().titleFormat('E').format("39-54");
-    seriesF.tooltip().titleFormat('F').format("21-38");
-    seriesG.tooltip().titleFormat('G').format("1-20");
+//     seriesA.tooltip().titleFormat('A').format("92-100");
+//     seriesB.tooltip().titleFormat('B').format("81-91");
+//     seriesC.tooltip().titleFormat('C').format("69-80");
+//     seriesD.tooltip().titleFormat('D').format("55-68");
+//     seriesE.tooltip().titleFormat('E').format("39-54");
+//     seriesF.tooltip().titleFormat('F').format("21-38");
+//     seriesG.tooltip().titleFormat('G').format("1-20");
 
     // set colors
     seriesA.normal().fill('#0A8647').stroke("#FFFFFF", 1);
