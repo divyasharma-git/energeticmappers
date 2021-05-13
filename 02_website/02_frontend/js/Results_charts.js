@@ -1,11 +1,8 @@
+// Ths code plots the column charts presented in the 'Results Page'.
+// This code was used using the 'AnyChart' library. It follows the documentation from these sites: 
+// https://docs.anychart.com/Quick_Start/Quick_Start, https://docs.anychart.com/Axes_and_Grids/Axis_Basics, https://codepen.io/AnyChart/pen/oWLOaV, https://docs.anychart.com/Basic_Charts/Box_Chart
 
-// This code follows the documentation from these sites: 
-// https://docs.anychart.com/Quick_Start/Quick_Start
-// https://docs.anychart.com/Axes_and_Grids/Axis_Basics
-// https://codepen.io/AnyChart/pen/oWLOaV
-// https://docs.anychart.com/Basic_Charts/Box_Chart
-
-// Housing prices and CO2 emissions
+// Housing prices and CO2 emissions column chart
 anychart.onDocumentReady(function () {
     anychart.data.loadJsonFile('http://dev.spatialdatacapture.org:8739/data/scenariobars',
         function(data){
@@ -48,6 +45,15 @@ anychart.onDocumentReady(function () {
             co2Chart.tooltip().title(true);
             co2Chart.tooltip().format("CO2 emissions: {%value}{decimalsCount:2}%");
 
+            // // enable legend
+            chart.legend(true);
+            // configure the font of legend items
+            priceChart.legendItem(true);
+            priceChart.legendItem().format('Housing prices');
+
+            co2Chart.legendItem(true);
+            co2Chart.legendItem().format('CO2 emissions');       
+
             // enable major grids
             chart.yGrid().enabled(true);
             // enable minor grids
@@ -75,7 +81,7 @@ anychart.onDocumentReady(function () {
 });
 
 
-// Property numbers
+// Property numbers column chart
 anychart.onDocumentReady(function () {
     anychart.data.loadJsonFile('http://dev.spatialdatacapture.org:8739/data/scenariobars',
         function(data){
@@ -89,9 +95,9 @@ anychart.onDocumentReady(function () {
             var propertyChart = chart.column(propertySeries);
 
             // set the visual parameters
-            propertyChart.normal().fill("#fed976",0.8).stroke("#FFFFFF", 1);
-            propertyChart.hovered().fill("#fed976", 0.6).stroke("#FFFFFF", 1);
-            propertyChart.selected().fill("#feb24c").stroke("#FFFFFF", 1);
+            propertyChart.normal().fill("#74c476",0.8).stroke("#FFFFFF", 1);
+            propertyChart.hovered().fill("#74c476", 0.6).stroke("#FFFFFF", 1);
+            propertyChart.selected().fill("#74c476").stroke("#FFFFFF", 1);
 
             // set the titles of the axes
             chart.xAxis().title("Scenarios");
@@ -125,3 +131,91 @@ anychart.onDocumentReady(function () {
     )
 });
 
+// Median percentage increase by WIMD Groups
+anychart.onDocumentReady(function () {
+    anychart.data.loadJsonFile('http://dev.spatialdatacapture.org:8739/data/wimdbarplot', 
+        function(data){
+            var chart = anychart.column()
+            console.log(data)            
+            // set the series
+            var priceMax = data.map((items)=>{
+                return{ x: items.map_group, value: items.pct_pricedif_max}
+                });
+                console.log(priceMax)
+            var priceC = data.map((items)=>{
+                return{ x: items.map_group, value: items.pct_pricedif_C}
+                });
+                console.log(priceC)
+            var priceD = data.map((items)=>{
+                return{ x: items.map_group, value: items.pct_pricedif_D}
+                });
+                console.log(priceD)
+            
+            // set the series to plot
+            var priceMaxSeries = chart.column(priceMax);
+            var priceCSeries = chart.column(priceC);
+            var priceDSeries = chart.column(priceD);
+
+            // set the visual parameters
+            // Scenario A
+            priceMaxSeries.normal().fill("#31a354", 0.7).stroke("#FFFFFF", 1);
+            priceMaxSeries.hovered().fill("#31a354", 0.5).stroke("#FFFFFF", 1);
+            priceMaxSeries.selected().fill("#31a354", 0.9).stroke("#FFFFFF", 1);
+
+            // Scenario B
+            priceCSeries.normal().fill("#74c476", 0.7).stroke("#FFFFFF", 1);
+            priceCSeries.hovered().fill("#74c476", 0.5).stroke("#FFFFFF", 1);
+            priceCSeries.selected().fill("#74c476", 0.9).stroke("#FFFFFF", 1);
+
+            // Scenario C
+            priceDSeries.normal().fill("#bae4b3", 0.7).stroke("#FFFFFF", 1);
+            priceDSeries.hovered().fill("#bae4b3", 0.5).stroke("#FFFFFF", 1);
+            priceDSeries.selected().fill("#bae4b3", 0.9).stroke("#FFFFFF", 1);
+
+            // set the titles of the axes
+            chart.xAxis().title("WIMD groups");
+            chart.yAxis().title("(%) price increase");
+
+            // Set tooltipe settings
+            priceMaxSeries.tooltip(true);
+            priceMaxSeries.tooltip().title(true);
+            priceMaxSeries.tooltip().titleFormat('Scenario A');
+            priceMaxSeries.tooltip().format("Value: {%value}{decimalsCount:2}%");
+
+            priceCSeries.tooltip(true);
+            priceCSeries.tooltip().title(true);
+            priceCSeries.tooltip().titleFormat('Scenario B');
+            priceCSeries.tooltip().format("Value: {%value}{decimalsCount:2}%");
+
+            priceDSeries.tooltip(true);
+            priceDSeries.tooltip().title(true);
+            priceDSeries.tooltip().titleFormat('Scenario C');
+            priceDSeries.tooltip().format("Value: {%value}{decimalsCount:2}%");
+
+            // // enable legend
+            chart.legend(true);
+            // configure the font of legend items
+            priceMaxSeries.legendItem(true);
+            priceMaxSeries.legendItem().format('Scenario A');
+
+            priceCSeries.legendItem(true);
+            priceCSeries.legendItem().format('Scenario B');
+
+            priceDSeries.legendItem(true);
+            priceDSeries.legendItem().format('Scenario C');
+
+            // enable major grids
+            chart.yGrid().enabled(true);
+            // enable minor grids
+            chart.yMinorGrid().enabled(true);
+
+            //set chart title text settings
+            chart.title('Median Percentage Price Increase by WIMD Groups');
+            // set the container id
+            chart.container("FigureZ");
+
+            // initiate drawing the chart
+            chart.draw();
+        }
+    )
+});
