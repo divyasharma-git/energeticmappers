@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Display a map on a webpage</title>
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+		<link rel='stylesheet' href='./css/map_style.css' type='text/css'/>
+
+		<script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+		<script src="https://unpkg.com/mapbox-choropleth"></script>
+		<style>
+		body { margin: 0; padding: 0; }
+		#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+		</style>
+
+	</head>
+
+<body>
+		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+		<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
+		<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+		<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+	<div id="legend_1" ></div>
+	<div id="legend_2" ></div>
+	<div id="legend_3" ></div>
+	<div id="legend_4" ></div>
+	<div id="legend_5" ></div>
+	<div id="legend_6" ></div>
+	<div id="menu-box">
+	<h3>Scenario A</h3>
+	<nav id="menu"></nav>
+	<div class="popup" onclick="myFunction_1()">i
+	<span class="popuptext" id="myPopup_1"> <b>Scenario A</b><br>  Displays the impact of the hypothetical increase of the EPC ratings of all the sold properties, in the studied period, to their individual maximum EPC potential.</br></span>
+	</div>
+	</div>
+
+	<div id="menu-box_2">
+		<h3>Scenario B</h3>
+		<div class="popup" onclick="myFunction_2()">i
+	  <span class="popuptext" id="myPopup_2"><b>Scenario B</b><br>  Displays the impact of the hypothetical increase of the EPC ratings of all the sold properties, in the studied period, to at least the EPC rating of C.</br></span>
+		</div>
+		</div>
+	<div id="menu-box_3">
+			<h3>Scenario C</h3>
+			<div class="popup" onclick="myFunction_3()">i
+		  <span class="popuptext" id="myPopup_3"><b>Scenario C</b><br>  Displays the impact of the hypothetical increase of the EPC ratings of all the sold properties, in the studied period, to at least the EPC rating of D.</br></span>
+			</div>
+	</div>
+	<div id="value-scale">
+	<h4>Cumulative Value of the Welsh Housing Market</h4>
+	<h3>The total value</h3>
+	<div class="popup" onclick="myFunction_4()" id="Popup_4">i
+	<span class="popuptext" id="myPopup_4"><b>The Total Value</b><br> Shows the cumulative values in relation to the reported transaction prices (£46.5B) and emission CO2 (1.45MT). The Welsh housing market value is given in billions of pounds whereas the total CO2 emission is given in millions of tonnes.</br></span>
+	</div>
+	<div class="price-bar">
+		<div id="billion" class="scale-billion">
+			<p >£49.5B</p>
+			<p>£49.0B</p>
+			<p>£48.5B</p>
+			<p>£48.0B</p>
+			<p>£47.5B</p>
+			<p>£47.0B</p>
+			<p>£46.5B</p>
+		</div>
+
+		<div id="tonnes" class="scale-billion">
+			<p>1.45MT</p>
+			<p>1.30MT</p>
+			<p>1.15MT</p>
+			<p>1.00MT</p>
+			<p>0.85MT</p>
+			<p>0.70MT</p>
+			<p>0.55MT</p>
+		</div>
+		<div class="semi-bars">
+			<div class="semi-bar-29"></div>
+			<div class="semi-bar-28"></div>
+			<div class="semi-bar-27"></div>
+			<div class="semi-bar-26"></div>
+			<div class="semi-bar-25"></div>
+			<div class="semi-bar-24"></div>
+			<div class="semi-bar-23"></div>
+			<div class="semi-bar-22"></div>
+			<div class="semi-bar-21"></div>
+			<div class="semi-bar-20"></div>
+			<div class="semi-bar-19"></div>
+			<div class="semi-bar-18"></div>
+			<div class="semi-bar-17"></div>
+			<div class="semi-bar-16"></div>
+			<div class="semi-bar-15"></div>
+			<div class="semi-bar-14"></div>
+			<div class="semi-bar-13"></div>
+			<div class="semi-bar-12"></div>
+			<div class="semi-bar-11"></div>
+			<div class="semi-bar-10"></div>
+			<div class="semi-bar-9"></div>
+			<div class="semi-bar-8"></div>
+			<div class="semi-bar-7"></div>
+			<div class="semi-bar-6"></div>
+			<div class="semi-bar-5"></div>
+			<div class="semi-bar-4"></div>
+			<div class="semi-bar-3"></div>
+			<div class="semi-bar-2"></div>
+			<div class="semi-bar-1"></div>
+		</div>
+
+								<div class="price-level">
+										<div class="bar-5"></div>
+										<div class="bar-4"></div>
+                    <div class="bar-3"></div>
+										<div class="bar-2"></div>
+                    <div class="bar-1"></div>
+
+                </div>
+                <div class="price-cage-css" id="bar"></div>
+								<div class="co2-cage-css" id="bar-co2"></div>
+            </div>
+</div>
+	<div id="top-10">
+		<h4>The LSOAS with the highest values</h4>
+		<button onclick="top_10()">Highlight</button>
+		<div id="#choro" ></div>
+		<div id="#choro_c" ></div>
+		<div id="#choro_co2" ></div>
+		<div id="#choro_co2_c" ></div>
+		<div id="#choro_co2_d" ></div>
+		<div id="#choro_d" ></div>
+	</div>
+
+	<div id="map"></div>
+
+
+
+
+	<script type='text/javascript' src='./js/map.js'></script>
+</body>
+</html>
