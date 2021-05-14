@@ -10,10 +10,10 @@ anychart.onDocumentReady(function () {
             console.log(data)
             //Set series
             var priceSeries = data.map((items)=>{
-                return{ x: items.Scenarios.slice(9), value: items.pct_prices}
+                return{ x: items.Scenarios.slice(9), value: items.pct_prices*100}
             });
             var co2Series = data.map((items)=>{
-                return{ x: items.Scenarios.slice(9), value: items.pct_co2}
+                return{ x: items.Scenarios.slice(9), value: items.pct_co2*100}
             });
             // create a chart from the loaded data
             var priceChart = chart.column(priceSeries);
@@ -89,7 +89,7 @@ anychart.onDocumentReady(function () {
             console.log(data)
             //Set series
             var propertySeries = data.map((items)=>{
-                return{ x: items.Scenarios.slice(9), value: items.pct_properties}
+                return{ x: items.Scenarios.slice(9), value: items.pct_properties*100}
             });
             // create a chart from the loaded data
             var propertyChart = chart.column(propertySeries);
@@ -139,15 +139,15 @@ anychart.onDocumentReady(function () {
             console.log(data)            
             // set the series
             var priceMax = data.map((items)=>{
-                return{ x: items.map_group, value: items.pct_pricedif_max}
+                return{ x: items.map_group, value: items.pct_pricedif_max*100}
                 });
                 console.log(priceMax)
             var priceC = data.map((items)=>{
-                return{ x: items.map_group, value: items.pct_pricedif_C}
+                return{ x: items.map_group, value: items.pct_pricedif_C*100}
                 });
                 console.log(priceC)
             var priceD = data.map((items)=>{
-                return{ x: items.map_group, value: items.pct_pricedif_D}
+                return{ x: items.map_group, value: items.pct_pricedif_D*100}
                 });
                 console.log(priceD)
             
