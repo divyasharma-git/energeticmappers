@@ -596,6 +596,7 @@ anychart.onDocumentReady(function () {
 });
 
 // custom coloring function
+// This function is explained in this source: https://docs.anychart.com/Common_Settings/Automatic_Coloring
 function coloringFunction() {
 
     // color elements depending on the argument
