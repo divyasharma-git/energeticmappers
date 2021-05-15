@@ -30,11 +30,43 @@ anychart.onDocumentReady(function () {
             co2Chart.selected().fill("#bc1118").stroke("#FFFFFF", 1);
 
             // set title
-            chart.title("Impact on Housing Prices and CO2 Emissions by Scenario");
+            chart.title()
+                .fontColor('black')
+                .fontWeight('bold')
+                .enabled(true)
+                .useHtml(true)
+                .padding([0, 0, 10, 0])
+                .text(
+                    'Impact on Housing Prices and CO2 Emissions by Scenario<br/>' +
+                    '<span style="color:white; font-size: 10px;">(Impact on Housing Prices and CO2 Emissions by Scenario)</span>'
+        );
 
             // set the titles of the axes
-            chart.xAxis().title("Scenarios");
+            chart.xAxis().title()
+                .enabled(true)
+                .fontColor('black')
+                .fontFamily('Arial')
+                .fontWeight('bold')
+                .text('Scenarios');
             
+            // set axis labels
+            chart
+                .xAxis()
+                .labels()
+                .useHtml(true)
+                .hAlign('right')
+                .fontSize(11)
+                .fontColor('black')
+                .padding([0, 10, 0, 0]);
+            chart
+                .yAxis()
+                .labels()
+                .useHtml(true)
+                .hAlign('right')
+                .fontSize(11)
+                .fontColor('black')
+                .padding([0, 10, 0, 0]);
+
             // Set tooltipe title
             // Housing Prices
             priceChart.tooltip(true);
@@ -47,12 +79,13 @@ anychart.onDocumentReady(function () {
 
             // // enable legend
             chart.legend(true);
+
             // configure the font of legend items
             priceChart.legendItem(true);
-            priceChart.legendItem().format('Housing prices');
+            priceChart.legendItem().format('Housing prices').fontColor('black').fontFamily('Arial');
 
             co2Chart.legendItem(true);
-            co2Chart.legendItem().format('CO2 emissions');       
+            co2Chart.legendItem().format('CO2 emissions').fontColor('black').fontFamily('Arial');       
 
             // enable major grids
             chart.yGrid().enabled(true);
@@ -100,11 +133,49 @@ anychart.onDocumentReady(function () {
             propertyChart.selected().fill("#74c476").stroke("#FFFFFF", 1);
 
             // set the titles of the axes
-            chart.xAxis().title("Scenarios");
-            chart.yAxis().title("(%) of properties");
+            chart.xAxis().title()
+                .enabled(true)
+                .fontColor('black')
+                .fontFamily('Arial')
+                .fontWeight('bold')
+                .text('Scenarios');
 
+            chart.yAxis().title()
+                .enabled(true)
+                .fontColor('black')
+                .fontFamily('Arial')
+                .fontWeight('bold')
+                .text("(%) of properties");
+
+            // set axis labels
+            chart
+                .xAxis()
+                .labels()
+                .useHtml(true)
+                .hAlign('right')
+                .fontSize(11)
+                .fontColor('black')
+                .padding([0, 10, 0, 0]);
+            chart
+                .yAxis()
+                .labels()
+                .useHtml(true)
+                .hAlign('right')
+                .fontSize(11)
+                .fontColor('black')
+                .padding([0, 10, 0, 0]);
             // set title
-            chart.title("Percentage of Properties Requiring Renovations");
+            chart.title()
+                .fontColor('black')
+                .fontWeight('bold')
+                .enabled(true)
+                .useHtml(true)
+                .padding([0, 0, 10, 0])
+                .text(
+                    'Percentage of Properties Requiring Renovations<br/>' +
+                    '<span style="color:white; font-size: 10px;">(Percentage of Properties Requiring Renovations)</span>'
+            );
+      
 
             // Set tooltipe title
             propertyChart.tooltip(true);
@@ -173,8 +244,19 @@ anychart.onDocumentReady(function () {
             priceDSeries.selected().fill("#bae4b3", 0.9).stroke("#FFFFFF", 1);
 
             // set the titles of the axes
-            chart.xAxis().title("WIMD groups");
-            chart.yAxis().title("(%) price increase");
+            chart.xAxis().title()
+                .enabled(true)
+                .fontColor('black')
+                .fontFamily('Arial')
+                .fontWeight('bold')
+                .text('WIMD groups');
+
+            chart.yAxis().title()
+                .enabled(true)
+                .fontColor('black')
+                .fontFamily('Arial')
+                .fontWeight('bold')
+                .text('(%) price increase');
 
             // Set tooltipe settings
             priceMaxSeries.tooltip(true);
@@ -194,23 +276,53 @@ anychart.onDocumentReady(function () {
 
             // // enable legend
             chart.legend(true);
+
+
             // configure the font of legend items
             priceMaxSeries.legendItem(true);
-            priceMaxSeries.legendItem().format('Scenario A');
+            priceMaxSeries.legendItem().format('Scenario A').fontColor('black').fontFamily('Arial');
 
             priceCSeries.legendItem(true);
-            priceCSeries.legendItem().format('Scenario B');
+            priceCSeries.legendItem().format('Scenario B').fontColor('black').fontFamily('Arial');
 
             priceDSeries.legendItem(true);
-            priceDSeries.legendItem().format('Scenario C');
+            priceDSeries.legendItem().format('Scenario C').fontColor('black').fontFamily('Arial');
 
             // enable major grids
             chart.yGrid().enabled(true);
             // enable minor grids
             chart.yMinorGrid().enabled(true);
 
+            // set axis labels
+            chart
+                .xAxis()
+                .labels()
+                .useHtml(true)
+                .hAlign('right')
+                .fontSize(11)
+                .fontColor('black')
+                .padding([0, 10, 0, 0]);
+            chart
+                .yAxis()
+                .labels()
+                .useHtml(true)
+                .hAlign('right')
+                .fontSize(11)
+                .fontColor('black')
+                .padding([0, 10, 0, 0]);            
+
             //set chart title text settings
-            chart.title('Median Percentage Price Increase by WIMD Groups');
+            chart.title()
+                .fontColor('black')
+                .fontWeight('bold')
+                .enabled(true)
+                .useHtml(true)
+                .padding([0, 0, 10, 0])
+                .text(
+                    'Median Percentage Price Increase by WIMD Groups<br/>' +
+                    '<span style="color:white; font-size: 10px;">(Median Percentage Price Increase by WIMD Groups)</span>'
+            );            
+
             // set the container id
             chart.container("FigureZ");
 
